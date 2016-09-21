@@ -2,16 +2,32 @@
 #include <stdlib.h>
 #include <strings.h>
 #define MAX 1000
+
+
+typedef struct node * link;
+
+struct node{ int item ; link next;};
+
 struct pilha
 {
-    int t;      /* t é o topo da pilha -- proximo espaco vazio do vetor */
-    int v[MAX]; /* v é o vetor que armazena os elementos da pilha */
+    link t;
 };
 
-/* Define um novo tipo de dado chamado Pilha que é um ponteiro para "struct pilha". */
+link novoNo (int item , link next)
+{
+    novoNo = malloc(sizeof(link));
+
+    if(novoNo = NULL)
+    {
+        printf("Erro ao Alocar um novo no!\n");
+    }
+
+}
+
+/* Define um novo tipo de dado chamado Pilha que Ã© um ponteiro para "struct pilha". */
 typedef struct pilha * Pilha;
 
-/* Aloca espaço para armazenar uma nova Pilha */
+/* Aloca espaÃ§o para armazenar uma nova Pilha */
 Pilha novaPilha () {
     Pilha p = malloc(sizeof(*p));
     if (p == NULL)
@@ -22,24 +38,24 @@ Pilha novaPilha () {
     p->t = 0; /* devemos inicializar o topo com 0 */
     return p;
 }
-/* Libera memória de uma dada pilha p */
+/* Libera memÃ³ria de uma dada pilha p */
 void destroiPilha (Pilha p)
 {
     free(p);
 }
-/* Operação de inserir novo elemento na pilha */
+/* OperaÃ§Ã£o de inserir novo elemento na pilha */
 void push (Pilha p, int valor) {
-    p->v[(p->t)++] = valor;
+    p->t = novoNo ( valor , p-> t->next);
 }
-/* Operação de remover um elemento da pilha */
+/* OperaÃ§Ã£o de remover um elemento da pilha */
 int pop (Pilha p) {
-    return p->v[--(p->t)];
+    return p->t 
 }
-/* Operação para pegar o elemento do topo da pilha */
+/* OperaÃ§Ã£o para pegar o elemento do topo da pilha */
 int topo (Pilha p) {
     return p->v[p->t - 1];
 }
-/* Transforma a notação infixa para a notação posfixa */
+/* Transforma a notaÃ§Ã£o infixa para a notaÃ§Ã£o posfixa */
 int infixoParaPosfixo (char * entrada, char * saida, int n)
 {
     Pilha p = novaPilha();
@@ -166,7 +182,7 @@ int calcula ( char * s ) {
 
 
 
-/* Exemplo de utilização */
+/* Exemplo de utilizaÃ§Ã£o */
 int main () {
     char infixo[255] ;
     char posfixo[255];
@@ -187,3 +203,4 @@ int main () {
     }
     return 0;
 }
+
